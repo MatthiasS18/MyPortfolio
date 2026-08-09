@@ -34,7 +34,7 @@ jobs:
 
       - name: Build project
         working-directory: ./myPortfolio
-        run: npm run build
+        run: npm run build-only 
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
