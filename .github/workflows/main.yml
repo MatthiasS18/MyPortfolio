@@ -29,20 +29,20 @@ jobs:
           node-version: 24
 
       - name: Install dependencies
-        working-directory: ./myPortfolio # ◄ SE DÉPLACE DANS LE DOSSIER
+        working-directory: ./myPortfolio
         run: npm install
 
       - name: Build project
-        working-directory: ./myPortfolio # ◄ SE DÉPLACE DANS LE DOSSIER
+        working-directory: ./myPortfolio
         run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3.1.0
+        uses: actions/upload-pages-artifact@v3 # ◄ CORRIGÉ ICI (v3 à la place de v3.1.0)
         with:
-          path: './myPortfolio/dist' # ◄ RECHERCHE LE DOSSIER DIST ICI
+          path: './myPortfolio/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
