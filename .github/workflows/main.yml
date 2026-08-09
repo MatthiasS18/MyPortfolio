@@ -26,12 +26,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24 # ◄ Passe à Node 24 (Recommandé par GitHub)
+          node-version: 24
 
       - name: Install dependencies
-        run: npm install # ◄ Utilise 'npm install' au lieu de 'npm ci' si package-lock est manquant
+        working-directory: ./myPortfolio # ◄ SE DÉPLACE DANS LE DOSSIER
+        run: npm install
 
       - name: Build project
+        working-directory: ./myPortfolio # ◄ SE DÉPLACE DANS LE DOSSIER
         run: npm run build
 
       - name: Setup Pages
@@ -40,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.1.0
         with:
-          path: './dist'
+          path: './myPortfolio/dist' # ◄ RECHERCHE LE DOSSIER DIST ICI
 
       - name: Deploy to GitHub Pages
         id: deployment
